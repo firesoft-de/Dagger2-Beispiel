@@ -7,8 +7,9 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import dagger2.firesoft.de.SecondClass;
-import dagger2.firesoft.de.manager.ExampleManager;
+import dagger2.firesoft.de.work_classes.SecondClass;
+import dagger2.firesoft.de.work_classes.ExampleManager;
+import dagger2.firesoft.de.work_classes.ThirdClass;
 
 /**
  * Diese Klasse definiert die Instanzierung der Variablen
@@ -17,10 +18,7 @@ import dagger2.firesoft.de.manager.ExampleManager;
  */
 @Module
 public class ModuleDI {
-
     private final Application application;
-
-    private ExampleManager mExampleManager;
 
     public ModuleDI(Application application) {
         this.application = application;
@@ -53,7 +51,12 @@ public class ModuleDI {
      */
     @Provides
     // Als Beispiel wird von der SecondClass jedes mal eine eigenständige Instanz ausgeführt.
-    SecondClass provideSecondClass(ExampleManager exampleManager) {
-        return new SecondClass(exampleManager);
+    SecondClass provideSecondClass(ExampleManager exampleManager, ThirdClass thirdClass) {
+        return new SecondClass(exampleManager, thirdClass);
+    }
+
+    @Provides
+    ThirdClass provideThirdClass(ExampleManager exampleManager) {
+        return new ThirdClass(exampleManager);
     }
 }

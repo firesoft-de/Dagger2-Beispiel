@@ -12,7 +12,7 @@ import android.widget.Button;
 import javax.inject.Inject;
 
 import dagger2.firesoft.de.dagger_DI.ApplicationDI;
-import dagger2.firesoft.de.manager.ExampleManager;
+import dagger2.firesoft.de.work_classes.ExampleManager;
 
 
 /**

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:text="SettingsManager aufrufen"
+        android:text="ExampleManager aufrufen"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,10 +22,19 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:text="SettingsManager über SecondClass aufrufen"
+        android:text="ExampleManager über SecondClass aufrufen"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/secondFragmentButton1" />
 
+    <Button
+        android:id="@+id/secondFragmentButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="ExampleManager über Second- und ThirdClass aufrufen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/secondFragmentButton3" />
 
     <Button
         android:id="@+id/secondFragmentButton2"
@@ -35,7 +44,7 @@
         android:layout_marginTop="10dp"
         android:text="Erstes Fragment"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondFragmentButton3" />
+        app:layout_constraintTop_toBottomOf="@+id/secondFragmentButton4" />
 
     <TextView
         android:id="@+id/textView"

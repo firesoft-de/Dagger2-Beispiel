@@ -1,14 +1,8 @@
-package dagger2.firesoft.de.manager;
+package dagger2.firesoft.de.work_classes;
 
-import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.provider.Settings;
 import android.widget.Toast;
-
-import javax.inject.Inject;
-
-import dagger2.firesoft.de.MainActivity;
 
 /**
  * Eine Beispielklasse die injected werden soll

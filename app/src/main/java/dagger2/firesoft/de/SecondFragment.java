@@ -12,7 +12,8 @@ import android.widget.Button;
 import javax.inject.Inject;
 
 import dagger2.firesoft.de.dagger_DI.ApplicationDI;
-import dagger2.firesoft.de.manager.ExampleManager;
+import dagger2.firesoft.de.work_classes.ExampleManager;
+import dagger2.firesoft.de.work_classes.SecondClass;
 
 
 /**
@@ -57,6 +58,7 @@ public class SecondFragment extends Fragment {
         Button firstButton = view.findViewById(R.id.secondFragmentButton1);
         final Button secondButton = view.findViewById(R.id.secondFragmentButton2);
         Button thirdButton = view.findViewById(R.id.secondFragmentButton3);
+        Button fourthButton = view.findViewById(R.id.secondFragmentButton4);
 
         firstButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +77,14 @@ public class SecondFragment extends Fragment {
         thirdButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                secondClass.exampleManager.publishID();
+                secondClass.callExampleManager();
+            }
+        });
+
+        fourthButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                secondClass.callThirdClass();
             }
         });
 
