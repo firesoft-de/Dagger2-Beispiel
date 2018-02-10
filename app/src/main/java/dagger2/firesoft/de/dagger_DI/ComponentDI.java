@@ -1,6 +1,8 @@
 package dagger2.firesoft.de.dagger_DI;
 
 
+import javax.inject.Singleton;
+
 import dagger.Component;
 import dagger2.firesoft.de.FirstFragment;
 import dagger2.firesoft.de.MainActivity;
@@ -10,6 +12,7 @@ import dagger2.firesoft.de.SecondFragment;
 /**
  * In diesem Interface wird für den Dagger Pre-Prozessor definiert für welche Klassen er Methoden für die DI bereistellen soll.
  */
+@Singleton
 @Component(modules = {ModuleDI.class})
 public interface ComponentDI {
 

@@ -3,6 +3,8 @@ package dagger2.firesoft.de.dagger_DI;
 import android.app.Application;
 import android.content.Context;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 import dagger2.firesoft.de.SecondClass;
@@ -18,7 +20,6 @@ public class ModuleDI {
 
     private final Application application;
 
-    // Damit wir auf alle Anfragen den gleichen ExampleManager zurückbekommen, muss die Instanz zwischengespeichert werden.
     private ExampleManager mExampleManager;
 
     public ModuleDI(Application application) {
@@ -37,15 +38,12 @@ public class ModuleDI {
      * @return Eine Instanz von ExampleManager
      */
     @Provides
+    @Singleton
+    // Damit wir auf alle Anfragen den gleichen ExampleManager zurückbekommen, wird diese Annotation verwendet.
+    // Sie definiert, dass in der Applicationscope nur einmal dieses Objekt erzeugt wird.
     ExampleManager provideSettingsManager(Context context) {
-
-        if (mExampleManager == null) {
-            mExampleManager = new ExampleManager(context);
-        }
-
-        return mExampleManager;
+        return new ExampleManager(context);
     }
-
 
     /**
      * Weiteres Beispiel für die Variablenverknüpfung
@@ -54,13 +52,8 @@ public class ModuleDI {
      * @return Die ID des Managers
      */
     @Provides
-    int provideSettingsManagerId(ExampleManager exampleManager) {
-        return exampleManager.getId();
-    }
-
-    @Provides
+    // Als Beispiel wird von der SecondClass jedes mal eine eigenständige Instanz ausgeführt.
     SecondClass provideSecondClass(ExampleManager exampleManager) {
         return new SecondClass(exampleManager);
     }
-
 }
